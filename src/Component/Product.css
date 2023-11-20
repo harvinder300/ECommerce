@@ -13,12 +13,14 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc; /* Border for the entire table */
 }
 
 .product-table th,
 .product-table td {
   padding: 12px;
-  text-align: left;
+  text-align: center; /* Center-align text */
+  border: 1px solid #ccc; /* Borders for table cells */
 }
 
 .product-table th {

@@ -1,0 +1,68 @@
+/* Home.css */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px 0;
+    background-color: #f8f8f8;
+  }
+  
+  .home-content {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .home-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .home-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .explore-button,
+  .learn-more-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .explore-button {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .learn-more-button {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .explore-button:hover,
+  .learn-more-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .home-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .home-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
