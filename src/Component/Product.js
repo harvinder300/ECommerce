@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import './Product.css'; // Import the CSS file
 import Card from 'react-bootstrap/Card';
@@ -20,6 +20,8 @@ function Product() {
     justifyContent: 'center',
   };
 
+  const [searchQuery, setSearchQuery] = useState('');
+  
   // Sample product data
   // Existing data
   const products = [
@@ -32,11 +34,22 @@ function Product() {
     // Add more products if needed
   ];
 
+  // Filter products based on search query
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <Card style={cardStyle}>
       <Card.Header style={titleStyle}>Products</Card.Header>
       <div>
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ marginBottom: '15px', padding: '8px' }}
+        />
         <Table responsive className="product-table">
           <thead>
             <tr>
@@ -46,13 +59,21 @@ function Product() {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.manufacturingDate}</td>
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.name}</td>
+                  <td>{product.price}</td>
+                  <td>{product.manufacturingDate}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="3" style={{ textAlign: 'center' }}>
+                  {searchQuery && 'Result not in the list'}
+                </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </Table>
       </div>
